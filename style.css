@@ -12,7 +12,8 @@ body {
 .calculator {
   width: 475px;
   background-color: gray;
-  border: solid black 3px;
+  border: solid black 2px;
+  border-radius: 20px;
 }
 
 .display {
@@ -20,10 +21,12 @@ body {
   align-items: flex-end;
   margin: 20px;
   height: 110px;
-  border: solid black 2px;
+  border: solid black 1px;
+  border-radius: 15px;
   background-color: lightgray;
   font: 50px monospace;
   padding-left: 20px;
+  padding-bottom: 10px;
 }
 
 .buttons {
@@ -40,6 +43,8 @@ body {
   font: 50px monospace;
   font-weight: bold;
   margin: 10px 0px;
+  border-radius: 15px;
+  border-style: none;
 }
 
 .clear {
@@ -52,5 +57,7 @@ body {
   font-weight: bold;
   margin: 0px 20px;
   padding: 0px 33px;
+  border-radius: 6px;
+  border-style: none;
 }
 
