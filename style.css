@@ -10,54 +10,38 @@ body {
 }
 
 .calculator {
-  width: 475px;
-  background-color: gray;
-  border: solid black 2px;
-  border-radius: 20px;
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 500px;
 }
 
 .display {
   display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
   align-items: flex-end;
-  margin: 20px;
-  height: 110px;
-  border: solid black 1px;
-  border-radius: 15px;
-  background-color: lightgray;
-  font: 50px monospace;
-  padding-left: 20px;
-  padding-bottom: 10px;
+  background-color: rgb(75, 75, 75);
+  font: 55px helvetica;
+  color: lightgray;
 }
 
 .buttons {
-  /* border: solid black 2px; */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 20px;
-  
+  border: solid gray 1px;
 }
 
 .buttons button {
-  padding: 10px 30px;
-  font: 50px monospace;
-  font-weight: bold;
-  margin: 10px 0px;
-  border-radius: 15px;
-  border-style: none;
+  border: solid gray 1px;
+  width: 25%;
+  font: 40px helvetica;
+  padding: 10px 0px;
 }
 
-.clear {
-  display: flex;
-  justify-content: flex-end;
+.zero {
+  flex-grow: 1;
 }
 
-.clear button {
-  font: 20px monospace;
-  font-weight: bold;
-  margin: 0px 20px;
-  padding: 0px 33px;
-  border-radius: 6px;
-  border-style: none;
-}
 
