@@ -1,48 +1,48 @@
-const button = document.querySelectorAll('.buttons button');
+const button = document.querySelectorAll('button');
 const display = document.querySelector('.display'); 
 const clear = document.querySelector('.clear');
-let displayNum1 = '';
-let displayNum2 = '';
-let displayOp = '';
 
-// Display character when clicked and store the values;
+let num1 = '';
+let num2 = '';
+let operator = '';
+
+// Add event listener to every button
 for (let i = 0; i < button.length; i++) {
   button[i].addEventListener('click', function(e) {
-    let operators = ['+', '-', '*', '/'];
     
-    if (button[i].innerHTML === '=') {
-      let result = operate(displayOp, displayNum1, displayNum2);
+    if (button[i].className === 'equals') {
+      let result = operate(operator, num1, num2);
       display.innerHTML = result;
-      displayNum1 = result.toString();
-      displayNum2 = '';
-      displayOp = '';
+      num1 = result;
+      num2 = '';
+      operator = '';
     };
 
-    if (displayOp.length === 0) {
-      if (operators.includes(button[i].innerHTML)) {
-        displayOp = button[i].innerHTML;
-      } else if (button[i].innerHTML != '=') {
-        displayNum1 = button[i].innerHTML;
+    if (operator.length === 0) {
+      if (button[i].className === 'operators') {
+        operator = button[i].innerHTML;
+      } else if (button[i].className != 'equals') {
+        num1 = button[i].innerHTML;
       }
     } else {
-      displayNum2 = button[i].innerHTML;
+      num2 = button[i].innerHTML;
     };
 
-    if (button[i].innerHTML != '=') {
+    if (button[i].className != 'equals') {
       display.innerHTML = button[i].innerHTML;
     };
-    console.log(displayNum1);
-    console.log(displayOp);
-    console.log(displayNum2);
+    console.log(num1);
+    console.log(operator);
+    console.log(num2);
   });
 };
 
 // clear button
 clear.addEventListener('click', function(e) {
   display.innerHTML = 0;
-  displayNum1 = '';
-  displayNum2 = '';
-  displayOp = '';
+  num1 = '';
+  num2 = '';
+  operator = '';
 })
 
 
