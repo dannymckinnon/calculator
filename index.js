@@ -6,36 +6,57 @@ let num1 = '';
 let num2 = '';
 let operator = '';
 
-// Add event listener to every button
+
+// Add event listener to every button and store what button was pressed
 for (let i = 0; i < button.length; i++) {
   button[i].addEventListener('click', function(e) {
-    
-    if (button[i].className === 'equals') {
-      let result = operate(operator, num1, num2);
-      display.innerHTML = result;
-      num1 = result;
-      num2 = '';
-      operator = '';
-    };
-
-    if (operator.length === 0) {
-      if (button[i].className === 'operators') {
-        operator = button[i].innerHTML;
-      } else if (button[i].className != 'equals') {
-        num1 = button[i].innerHTML;
-      }
-    } else {
-      num2 = button[i].innerHTML;
-    };
-
-    if (button[i].className != 'equals') {
-      display.innerHTML = button[i].innerHTML;
-    };
+    if (button[i].className === 'numbers' && num1 === '') {
+      num1 = button[i].innerHTML;
+      display.innerHTML = num1;
+    }
     console.log(num1);
-    console.log(operator);
     console.log(num2);
+    console.log(operator);
   });
-};
+  
+}; 
+
+
+
+
+
+
+
+// Add event listener to every button
+// for (let i = 0; i < button.length; i++) {
+//   button[i].addEventListener('click', function(e) {
+    
+//     if (button[i].className === 'equals') {
+//       let result = operate(operator, num1, num2);
+//       display.innerHTML = result;
+//       num1 = result;
+//       num2 = '';
+//       operator = '';
+//     };
+
+//     if (operator.length === 0) {
+//       if (button[i].className === 'operators') {
+//         operator = button[i].innerHTML;
+//       } else if (button[i].className != 'equals') {
+//         num1 = button[i].innerHTML;
+//       }
+//     } else {
+//       num2 = button[i].innerHTML;
+//     };
+
+//     if (button[i].className != 'equals') {
+//       display.innerHTML = button[i].innerHTML;
+//     };
+//     console.log(num1);
+//     console.log(operator);
+//     console.log(num2);
+//   });
+// };
 
 // clear button
 clear.addEventListener('click', function(e) {
