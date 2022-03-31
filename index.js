@@ -13,12 +13,22 @@ let num2 = '0';
 for (let i = 0; i < numbers.length; i++) {
   numbers[i].addEventListener('click', () => {
     let selection = numbers[i].innerHTML;
-    if (num1 === '0') {
-      num1 = selection;
-      display.innerHTML = selection;
+    if (!operator) {
+      if (num1 === '0') {
+        num1 = selection;
+        display.innerHTML = selection;
+      } else {
+        num1 += selection;
+        display.innerHTML += selection;
+      }
     } else {
-      num1 += selection;
-      display.innerHTML += selection;
+      if (num2 === '0') {
+        num2 = selection;
+        display.innerHTML = selection;
+      } else {
+        num2 += selection;
+        display.innerHTML += selection;
+      }
     }
     console.log(num1, operator, num2);
   });
@@ -29,6 +39,7 @@ for (let i = 0; i < operators.length; i++) {
   operators[i].addEventListener('click', () => {
     let selection = operators[i].innerHTML;
     operator = selection;
+
     console.log(num1, operator, num2);
   });
 } 
@@ -42,37 +53,14 @@ clear.addEventListener('click', () => {
   display.innerHTML = 0;
   num1 = '0';
   num2 = '0';
-  operator = '0';
-  console.log(num1);
-  console.log(num2);
-  console.log(operator);
+  operator = '';
+  console.log(num1, operator, num2);
 });
 
 
-// these are all of the math functions
 const operate = function(operator, a, b) {
-  if (operator === '+') return add(a, b);
-  if (operator === '-') return subtract(a, b);
-  if (operator === '*') return multiply(a, b);
-  if (operator === '/') return divide(a, b);
-}
-
-
-const add = function(a, b) {
-  return a + b;
-}
-
-
-const subtract = function(a, b) {
-  return a - b;
-}
-
-
-const multiply = function(a, b) {
-  return a * b;
-}
-
-
-const divide = function(a, b) {
-  return a / b;
+  if (operator === '+') return a + b;
+  if (operator === '-') return a - b;
+  if (operator === '*') return a * b;
+  if (operator === '/') return a / b;
 }
