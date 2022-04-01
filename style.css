@@ -19,9 +19,9 @@ body {
 
 .display {
   display: flex;
-  width: 100%;
-  justify-content: flex-end;
   align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
   background-color: rgb(75, 75, 75);
   font: 55px helvetica;
   color: lightgray;
