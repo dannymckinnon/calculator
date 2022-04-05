@@ -10,25 +10,29 @@ const numbers = document.querySelectorAll('.numbers');
 
 for (let i = 0; i < numbers.length; i++) {
   numbers[i].addEventListener('click', () => {
-    let selection = numbers[i].innerHTML;
-    if (!operator) {
-      if (num1 === '0') {
-        num1 = selection;
-        display.innerHTML = selection;
+      let selection = numbers[i].innerHTML;
+      breakme: if (!operator) {
+        if (num1 === '0') {
+          num1 = selection;
+          display.innerHTML = selection;
+        } else if (num1.length >= 9) {
+          break breakme;
+        } else {
+          num1 += selection;
+          display.innerHTML += selection;
+        }
       } else {
-        num1 += selection;
-        display.innerHTML += selection;
+        breakme2: if (num2 === '0') {
+          num2 = selection;
+          display.innerHTML = selection;
+        } else if (num2.length >= 9) {
+          break breakme2;
+        } else {
+          num2 += selection;
+          display.innerHTML += selection;
+        }
       }
-    } else {
-      if (num2 === '0') {
-        num2 = selection;
-        display.innerHTML = selection;
-      } else {
-        num2 += selection;
-        display.innerHTML += selection;
-      }
-    }
-    console.log(num1, operator, num2);
+      console.log(num1, operator, num2);
   });
 } 
 
@@ -39,9 +43,9 @@ const operators = document.querySelectorAll('.operators');
 for (let i = 0; i < operators.length; i++) {
   operators[i].addEventListener('click', () => {
     let selection = operators[i].innerHTML;
-    
-    if (+num1 > 0 && +num2 > 0) {
-      let result = operate(operator, +num1, +num2);
+    if (Number(num1) > 0 && Number(num2) > 0) {
+      let result = operate(operator, Number(num1), Number(num2));
+      if (result.toString().length > 9) result = result.toExponential(3).toString();
       num1 = result.toString();
       num2 = '0';
       operator = '';
@@ -59,9 +63,10 @@ const equals = document.querySelector('.equals');
 
 equals.addEventListener('click', () => {
   if (operator) {
-    let result = operate(operator, +num1, +num2);
+    let result = operate(operator, Number(num1), Number(num2));
+    if (result.toString().length > 9) result = result.toExponential(3).toString();
     (result === NaN) ? display.innerHTML = NaN : display.innerHTML = result.toString();
-    num1 = '0'
+    num1 = result;
     num2 = '0';
     operator = '';
     display.innerHTML = result.toString();
