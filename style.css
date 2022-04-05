@@ -20,7 +20,6 @@ body {
   flex-wrap: wrap;
   width: 400px;
   height: 500px;
-  outline: solid black 1px;
 }
 
 .display {
@@ -31,8 +30,11 @@ body {
   height: 20%;
   background-color: rgb(75, 75, 75);
   font: 75px helvetica;
-  color: lightgray;
   padding-right: 12px;
+  color: rgb(233, 233, 233);
+  outline: solid black 1px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 
@@ -44,13 +46,47 @@ body {
 }
 
 .buttons button {
-  outline: solid gray 1px;
+  outline: solid rgb(75, 75, 75) 1px;
   width: 25%;
   font: 40px helvetica;
   padding: 10px 0px;
   border-style: none;
+  color: rgb(233, 233, 233);
+}
+
+.numbers:hover, .decimal:hover {
+  background-color: rgb(147, 147, 147);
+}
+
+.clear:hover, .plusminus:hover, .percent:hover {
+  background-color: rgb(117, 117, 117);
+}
+
+.operators:hover, .equals:hover {
+  background-color: rgb(252, 142, 16);
 }
 
 .zero {
   flex-grow: 1;
+  border-bottom-left-radius: 12px;
+}
+
+.clear, .plusminus, .percent {
+  background-color: rgb(105, 105, 105);
+}
+
+.numbers, .decimal {
+  background-color: rgb(138, 138, 138);
+}
+
+.operators, .equals {
+  background-color: rgb(251, 149, 31);
+}
+
+.equals {
+  border-bottom-right-radius: 12px;
+}
+
+.black {
+  background-color: black;
 }

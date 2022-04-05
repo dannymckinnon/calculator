@@ -99,10 +99,12 @@ const decimal = document.querySelector('.decimal');
 decimal.addEventListener('click', () => decimalSelect());
 
 function decimalSelect() {
-  if ( !(display.innerHTML.includes('.')) ) {
-    display.innerHTML += '.';
-    (operator) ? (num2 += '.') : (num1 += '.');
-  }
+  if (display.innerHTML.length < 8) {
+    if ( !(display.innerHTML.includes('.')) ) {
+      display.innerHTML += '.';
+      (operator) ? (num2 += '.') : (num1 += '.');
+    }
+  }  
 }
 
 
@@ -149,11 +151,11 @@ plusminus.addEventListener('click', () => {
 const percent = document.querySelector('.percent');
 
 percent.addEventListener('click', () => {
-  if (num1 === display.innerHTML) {
+  if (num1 === display.innerHTML && +num1 != 0) {
     num1 = (+num1 / 100).toFixed(3).toString();
     display.innerHTML = num1;
     console.log(num1, operator, num2);
-  } else if (num2 === display.innerHTML) {
+  } else if (num2 === display.innerHTML && num2 != 0) {
     num2 = (+num2 / 100).toFixed(3).toString();
     display.innerHTML = num2;
     console.log(num1, operator, num2);
